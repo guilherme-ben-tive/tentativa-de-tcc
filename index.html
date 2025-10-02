@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #fff;
+    }
+
+    /* ====== TELA INICIAL ====== */
+    .tela-inicial {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+      color: #ff0055;
+      margin-bottom: 10px;
+    }
+
+    .slogan {
+      font-size: 16px;
+      margin-bottom: 40px;
+      color: #bbb;
+    }
+
+    .botao {
+      background: linear-gradient(90deg, #ff0055, #ff5500);
+      border: none;
+      padding: 15px 25px;
+      margin: 10px 0;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    .botao-secundario {
+      background: transparent;
+      border: 1px solid #ff0055;
+    }
+
+    /* ====== FEED ====== */
+    .feed {
+      display: none;
+      padding-bottom: 70px; /* espaço pro menu */
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      background: #1f1f1f;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .xp-bar {
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 100px;
+      height: 10px;
+      margin-left: 10px;
+    }
+
+    .xp-fill {
+      background: #ff0055;
+      width: 60%;
+      height: 100%;
+    }
+
+    .post {
+      background: #1f1f1f;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 15px;
+    }
+
+    .post h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .post small {
+      color: #aaa;
+    }
+
+    .acoes {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+
+    .acoes button {
+      background: none;
+      border: none;
+      color: #ff0055;
+      cursor: pointer;
+    }
+
+    /* ====== MENU INFERIOR ====== */
+    .menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1f1f1f;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+
+    .menu button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* ====== BOTÃO FLUTUANTE ====== */
+    .add-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: #ff0055;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== TELA INICIAL ====== -->
+  <div class="tela-inicial" id="tela-inicial">
+    <div class="logo">NEXU</div>
+    <div class="slogan">Conectando pessoas e empresas em um só lugar.</div>
+    <button class="botao" onclick="entrar()">Começar agora</button>
+    <button class="botao botao-secundario" onclick="entrar()">Já tenho conta</button>
+  </div>
+
+  <!-- ====== FEED ====== -->
+  <div class="feed" id="feed">
+    <div class="top-bar">
+      <div>👤 Nível 3</div>
+      <div class="xp-bar"><div class="xp-fill"></div></div>
+      <div>🔔</div>
+    </div>
+
+    <!-- POST USUÁRIO -->
+    <div class="post">
+      <h3>Maria Oliveira</h3>
+      <small>há 2h • #Design</small>
+      <p>Trabalhando em um novo projeto no Figma, muito animada! 🚀</p>
+      <div class="acoes">
+        <button onclick="curtir(this)">❤️ <span>10</span></button>
+        <button onclick="comentar()">💬 2</button>
+      </div>
+    </div>
+
+    <!-- POST EMPRESA -->
+    <div class="post">
+      <h3>Empresa TechX</h3>
+      <small>há 5h • #Vagas</small>
+      <p>Estamos contratando Dev Front-end! Candidate-se agora ✅</p>
+      <div class="acoes">
+        <button onclick="curtir(this)">❤️ <span>25</span></button>
+        <button onclick="comentar()">💬 8</button>
+      </div>
+    </div>
+
+    <!-- MENU INFERIOR -->
+    <div class="menu">
+      <button>🏠 Feed</button>
+      <button>👥 Contatos</button>
+      <button>🏢 Empresas</button>
+      <button>📌 Vagas</button>
+      <button>⚙ Perfil</button>
+    </div>
+
+    <!-- BOTÃO FLUTUANTE -->
+    <button class="add-btn" onclick="novoPost()">+</button>
+  </div>
+
+  <script>
+    function entrar() {
+      document.getElementById("tela-inicial").style.display = "none";
+      document.getElementById("feed").style.display = "block";
+    }
+
+    function curtir(btn) {
+      let span = btn.querySelector("span");
+      let num = parseInt(span.innerText);
+      span.innerText = num + 1;
+    }
+
+    function comentar() {
+      alert("Função de comentar ainda em desenvolvimento!");
+    }
+
+    function novoPost() {
+      alert("Aqui você poderia criar um novo post!");
+    }
+  </script>
+
+</body>
+</html>
