@@ -1,230 +1,210 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexu</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #121212;
-      color: #fff;
-    }
-
-    /* ====== TELA INICIAL ====== */
-    .tela-inicial {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .logo {
-      font-size: 40px;
-      font-weight: bold;
-      color: #ff0055;
-      margin-bottom: 10px;
-    }
-
-    .slogan {
-      font-size: 16px;
-      margin-bottom: 40px;
-      color: #bbb;
-    }
-
-    .botao {
-      background: linear-gradient(90deg, #ff0055, #ff5500);
-      border: none;
-      padding: 15px 25px;
-      margin: 10px 0;
-      border-radius: 25px;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      width: 80%;
-      max-width: 300px;
-    }
-
-    .botao-secundario {
-      background: transparent;
-      border: 1px solid #ff0055;
-    }
-
-    /* ====== FEED ====== */
-    .feed {
-      display: none;
-      padding-bottom: 70px; /* espaço pro menu */
-    }
-
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 15px;
-      background: #1f1f1f;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .xp-bar {
-      background: #333;
-      border-radius: 10px;
-      overflow: hidden;
-      width: 100px;
-      height: 10px;
-      margin-left: 10px;
-    }
-
-    .xp-fill {
-      background: #ff0055;
-      width: 60%;
-      height: 100%;
-    }
-
-    .post {
-      background: #1f1f1f;
-      margin: 10px;
-      padding: 15px;
-      border-radius: 15px;
-    }
-
-    .post h3 {
-      margin: 0;
-      font-size: 16px;
-    }
-
-    .post small {
-      color: #aaa;
-    }
-
-    .acoes {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 10px;
-    }
-
-    .acoes button {
-      background: none;
-      border: none;
-      color: #ff0055;
-      cursor: pointer;
-    }
-
-    /* ====== MENU INFERIOR ====== */
-    .menu {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #1f1f1f;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-    }
-
-    .menu button {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    /* ====== BOTÃO FLUTUANTE ====== */
-    .add-btn {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background: #ff0055;
-      border: none;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-      font-size: 30px;
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nexu — Protótipo</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- LANDING / ONBOARD -->
+  <main id="landing" class="page active">
+    <div class="centercard">
+      <div class="brand">
+        <div class="brand-icon">N</div>
+        <h1>Nexus</h1>
+      </div>
+      <p class="subtitle">A rede profissional que conecta estudantes e empresas de forma inovadora.</p>
 
-  <!-- ====== TELA INICIAL ====== -->
-  <div class="tela-inicial" id="tela-inicial">
-    <div class="logo">NEXU</div>
-    <div class="slogan">Conectando pessoas e empresas em um só lugar.</div>
-    <button class="botao" onclick="entrar()">Começar agora</button>
-    <button class="botao botao-secundario" onclick="entrar()">Já tenho conta</button>
-  </div>
+      <div class="features">
+        <div class="feature"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM4 22a8 8 0 0 1 16 0H4z"/></svg>
+          <div><strong>Networking inteligente</strong><small>Conecte-se com pessoas certas</small></div>
+        </div>
+        <div class="feature"><svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 9h18v12H3z"/></svg>
+          <div><strong>Oportunidades reais</strong><small>Vagas e projetos exclusivos</small></div>
+        </div>
+        <div class="feature"><svg viewBox="0 0 24 24"><path d="M12 2l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/></svg>
+          <div><strong>Crescimento profissional</strong><small>Sistema de gamificação</small></div>
+        </div>
+      </div>
 
-  <!-- ====== FEED ====== -->
-  <div class="feed" id="feed">
-    <div class="top-bar">
-      <div>👤 Nível 3</div>
-      <div class="xp-bar"><div class="xp-fill"></div></div>
-      <div>🔔</div>
+      <button class="primary" id="startBtn">Começar agora</button>
+      <button class="ghost" id="gotoLogin">Já tenho uma conta</button>
+    </div>
+  </main>
+
+  <!-- AUTH -->
+  <section id="auth" class="page">
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button id="tabLogin" class="tab active">Entrar</button>
+        <button id="tabRegister" class="tab">Cadastro</button>
+      </div>
+
+      <!-- LOGIN -->
+      <form id="loginForm" class="auth-form">
+        <label>Email ou usuário
+          <input id="loginUser" required />
+        </label>
+        <label>Senha
+          <input id="loginPass" type="password" required />
+        </label>
+        <div class="row">
+          <button class="primary" type="submit">Entrar</button>
+          <button type="button" class="ghost" id="backToLanding">Voltar</button>
+        </div>
+      </form>
+
+      <!-- REGISTER -->
+      <form id="registerForm" class="auth-form hidden">
+        <label>Tipo de conta
+          <select id="regType">
+            <option value="professional">Profissional</option>
+            <option value="company">Empresa</option>
+          </select>
+        </label>
+
+        <label>Nome
+          <input id="regName" required />
+        </label>
+
+        <label id="extraLabel">Área de atuação
+          <input id="regExtra" placeholder="Ex: Frontend, Design" />
+        </label>
+
+        <label>Email
+          <input id="regEmail" type="email" required />
+        </label>
+
+        <label>Senha
+          <input id="regPass" type="password" required />
+        </label>
+
+        <div class="row">
+          <button class="primary" type="submit">Criar conta</button>
+          <button type="button" class="ghost" id="cancelRegister">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- APP (SPA) -->
+  <section id="app" class="page">
+    <!-- Header -->
+    <header class="app-header">
+      <div>
+        <h2 id="pageTitle">Feed</h2>
+        <small id="pageSub">Descubra projetos incríveis</small>
+      </div>
+      <div class="header-right">
+        <div id="xpInfo" class="xp-info">
+          <div class="xp-bar"><div id="xpFill" class="xp-fill"></div></div>
+          <div id="xpLevel" class="xp-level">Nível 3</div>
+        </div>
+        <button id="createBtn" class="circle">+</button>
+      </div>
+    </header>
+
+    <!-- Views -->
+    <div class="view" id="viewFeed">
+      <div class="compose card">
+        <div class="avatar" id="myAvatar">U</div>
+        <input id="postInput" placeholder="O que você está pensando?" />
+        <button class="primary small" id="postBtn">Publicar</button>
+      </div>
+
+      <div id="posts"></div>
     </div>
 
-    <!-- POST USUÁRIO -->
-    <div class="post">
-      <h3>Maria Oliveira</h3>
-      <small>há 2h • #Design</small>
-      <p>Trabalhando em um novo projeto no Figma, muito animada! 🚀</p>
-      <div class="acoes">
-        <button onclick="curtir(this)">❤️ <span>10</span></button>
-        <button onclick="comentar()">💬 2</button>
+    <div class="view hidden" id="viewCompanies">
+      <div class="search card">
+        <input id="searchCompanies" placeholder="Buscar empresas..." />
+      </div>
+      <div id="companyList"></div>
+    </div>
+
+    <div class="view hidden" id="viewJobs">
+      <div class="search card">
+        <input id="searchJobs" placeholder="Buscar vagas..." />
+      </div>
+      <div id="jobsList"></div>
+    </div>
+
+    <div class="view hidden" id="viewMessages">
+      <div class="search card">
+        <input id="searchConversations" placeholder="Buscar conversas..." />
+      </div>
+      <div id="conversations"></div>
+    </div>
+
+    <div class="view hidden" id="viewNotifications">
+      <div id="notificationList"></div>
+    </div>
+
+    <div class="view hidden" id="viewProfile">
+      <div class="profile card">
+        <div class="profile-header">
+          <div class="avatar large" id="profileAvatar">U</div>
+          <div>
+            <h3 id="profileName">Usuário</h3>
+            <small id="profileRole">Profissional</small>
+            <div class="meta">
+              <span id="profileXP">0 pts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <div class="progress-bar"><div id="profileProgress" style="width:50%"></div></div>
+          <div class="stats">
+            <div><strong id="statConnections">0</strong><small>Conexões</small></div>
+            <div><strong id="statLikes">0</strong><small>Curtidas</small></div>
+            <div><strong id="statProjects">0</strong><small>Projetos</small></div>
+          </div>
+        </div>
+
+        <div class="about card">
+          <h4>Sobre</h4>
+          <p id="profileAbout">Sem descrição.</p>
+        </div>
       </div>
     </div>
 
-    <!-- POST EMPRESA -->
-    <div class="post">
-      <h3>Empresa TechX</h3>
-      <small>há 5h • #Vagas</small>
-      <p>Estamos contratando Dev Front-end! Candidate-se agora ✅</p>
-      <div class="acoes">
-        <button onclick="curtir(this)">❤️ <span>25</span></button>
-        <button onclick="comentar()">💬 8</button>
-      </div>
-    </div>
+    <!-- Bottom nav -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-view="viewFeed" title="Feed">
+        <!-- home svg -->
+        <svg viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+        <small>Feed</small>
+      </button>
 
-    <!-- MENU INFERIOR -->
-    <div class="menu">
-      <button>🏠 Feed</button>
-      <button>👥 Contatos</button>
-      <button>🏢 Empresas</button>
-      <button>📌 Vagas</button>
-      <button>⚙ Perfil</button>
-    </div>
+      <button class="nav-btn" data-view="viewCompanies" title="Empresas">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zM13 21h8v-8h-8v8zM13 3v8h8V3h-8z"/></svg>
+        <small>Empresas</small>
+      </button>
 
-    <!-- BOTÃO FLUTUANTE -->
-    <button class="add-btn" onclick="novoPost()">+</button>
-  </div>
+      <button class="nav-btn" data-view="viewJobs" title="Vagas">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16v12H4zM8 3h8v4H8z"/></svg>
+        <small>Vagas</small>
+      </button>
 
-  <script>
-    function entrar() {
-      document.getElementById("tela-inicial").style.display = "none";
-      document.getElementById("feed").style.display = "block";
-    }
+      <button class="nav-btn" data-view="viewMessages" title="Mensagens">
+        <svg viewBox="0 0 24 24"><path d="M2 3h20v14H6l-4 4V3z"/></svg>
+        <small>Mensagens</small>
+      </button>
 
-    function curtir(btn) {
-      let span = btn.querySelector("span");
-      let num = parseInt(span.innerText);
-      span.innerText = num + 1;
-    }
+      <button class="nav-btn" data-view="viewNotifications" title="Notificações">
+        <svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6v5H4l4 4h8l4-4h-2V8a6 6 0 0 0-6-6z"/></svg>
+        <small>Notificações</small>
+      </button>
 
-    function comentar() {
-      alert("Função de comentar ainda em desenvolvimento!");
-    }
+      <button class="nav-btn" data-view="viewProfile" title="Perfil">
+        <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM4 22a8 8 0 0 1 16 0H4z"/></svg>
+        <small>Perfil</small>
+      </button>
+    </nav>
+  </section>
 
-    function novoPost() {
-      alert("Aqui você poderia criar um novo post!");
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
